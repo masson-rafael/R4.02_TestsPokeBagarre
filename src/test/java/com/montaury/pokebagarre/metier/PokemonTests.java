@@ -2,6 +2,7 @@ package com.montaury.pokebagarre.metier;
 
 import org.junit.jupiter.api.*;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
@@ -17,7 +18,7 @@ priorité et remporte la bagarre
 class PokemonTests {
 
     @Test
-    void premier_meilleure_attaque () {
+    void premier_meilleure_attaque_vainqueur_premier () {
         // GIVEN
         Pokemon pokemon1 = new Pokemon("Libegon","",new Stats(200, 100));
         Pokemon pokemon2 = new Pokemon("Voltali","",new Stats(100, 100));
@@ -26,11 +27,11 @@ class PokemonTests {
         boolean res = pokemon1.estVainqueurContre(pokemon2);
 
         // THEN
-        assertEquals(true,res);
+        assertThat(res).isTrue();
     }
 
     @Test
-    void deuxieme_meilleure_attaque () {
+    void deuxieme_meilleure_attaque_vainqueur_deuxieme () {
         // GIVEN
         Pokemon pokemon1 = new Pokemon("Libegon","",new Stats(100, 100));
         Pokemon pokemon2 = new Pokemon("Voltali","",new Stats(200, 100));
@@ -39,11 +40,11 @@ class PokemonTests {
         boolean res = pokemon1.estVainqueurContre(pokemon2);
 
         // THEN
-        assertEquals(false,res);
+        assertThat(res).isFalse();
     }
 
     @Test
-    void attaques_identiques_premier_meilleure_defense () {
+    void attaques_identiques_premier_meilleure_defense_vainqueur_premier () {
         // GIVEN
         Pokemon pokemon1 = new Pokemon("Libegon","",new Stats(100, 200));
         Pokemon pokemon2 = new Pokemon("Voltali","",new Stats(100, 100));
@@ -52,11 +53,11 @@ class PokemonTests {
         boolean res = pokemon1.estVainqueurContre(pokemon2);
 
         // THEN
-        assertEquals(true,res);
+        assertThat(res).isTrue();
     }
 
     @Test
-    void attaques_identiques_deuxieme_meilleure_defense () {
+    void attaques_identiques_deuxieme_meilleure_defense_vainqueur_deuxieme () {
         // GIVEN
         Pokemon pokemon1 = new Pokemon("Libegon","",new Stats(100, 100));
         Pokemon pokemon2 = new Pokemon("Voltali","",new Stats(100, 200));
@@ -65,11 +66,11 @@ class PokemonTests {
         boolean res = pokemon1.estVainqueurContre(pokemon2);
 
         // THEN
-        assertEquals(false,res);
+        assertThat(res).isFalse();
     }
 
     @Test
-    void attaques_et_defences_identiques () {
+    void attaques_et_defences_identiques_vainqueur_premier () {
         // GIVEN
         Pokemon pokemon1 = new Pokemon("Libegon","",new Stats(100, 100));
         Pokemon pokemon2 = new Pokemon("Voltali","",new Stats(100, 100));
@@ -78,7 +79,7 @@ class PokemonTests {
         boolean res = pokemon1.estVainqueurContre(pokemon2);
 
         // THEN
-        assertEquals(true,res);
+        assertThat(res).isTrue();
     }
 
 
