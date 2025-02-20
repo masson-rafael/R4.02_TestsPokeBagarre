@@ -36,11 +36,11 @@ jobs:
         id: jacoco_reporter
         uses: PavanMudigonda/jacoco-reporter@v5.0
         with:
-        coverage_results_path: jacoco-report/test.xml
-        coverage_report_name: Coverage
-        coverage_report_title: JaCoCo
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        skip_check_run: false
-        minimum_coverage: 80
-        fail_below_threshold: false
-        publish_only_summary: false
+          coverage_results_path: jacoco-report/test.xml
+          coverage_report_name: Coverage
+          coverage_report_title: JaCoCo
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          skip_check_run: false
+          minimum_coverage: 80
+          fail_below_threshold: false
+          publish_only_summary: false
